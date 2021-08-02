@@ -20,6 +20,7 @@ import { ReactComponent as CodeAnalysisIcon } from './assets/code-analysis.svg';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'app/components/Link';
 import { messages } from '../messages';
+import openCamera from 'utils/camera';
 
 export function Features() {
   const { t } = useTranslation();
@@ -27,6 +28,12 @@ export function Features() {
   return (
     <>
       <Title as="h2">Features</Title>
+      <div>
+        <div onClick={openCamera}>
+          <P>openCamera</P>
+        </div>
+        <video></video>
+      </div>
       <Lead>
         Crafted for <strong>highly scalable</strong>,{' '}
         <strong>easily maintainable</strong> and{' '}
