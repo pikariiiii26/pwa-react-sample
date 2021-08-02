@@ -1,21 +1,23 @@
 function openCamera() {
   var video = document.querySelector('video');
-  navigator.mediaDevices =
-    navigator.mediaDevices ||
-    (navigator.mozGetUserMedia || navigator.webkitGetUserMedia
-      ? {
-          getUserMedia: function (c) {
-            return new Promise(function (y, n) {
-              (navigator.mozGetUserMedia || navigator.webkitGetUserMedia).call(
-                navigator,
-                c,
-                y,
-                n,
-              );
-            });
-          },
-        }
-      : null);
+  console.log(video);
+  console.log(navigator.mediaDevices);
+  //   navigator.mediaDevices =
+  //     navigator.mediaDevices ||
+  //     (navigator.mozGetUserMedia || navigator.webkitGetUserMedia
+  //       ? {
+  //           getUserMedia: function (c) {
+  //             return new Promise(function (y, n) {
+  //               (navigator.mozGetUserMedia || navigator.webkitGetUserMedia).call(
+  //                 navigator,
+  //                 c,
+  //                 y,
+  //                 n,
+  //               );
+  //             });
+  //           },
+  //         }
+  //       : null);
   var constraints = {
     video: { facingMode: 'environment', width: 1280, height: 720 },
   };
