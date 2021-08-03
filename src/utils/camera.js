@@ -1,24 +1,7 @@
 function openCamera() {
   var video = document.querySelector('video');
-  console.log(video);
-  console.log(navigator.mediaDevices);
-  //   navigator.mediaDevices =
-  //     navigator.mediaDevices ||
-  //     (navigator.mozGetUserMedia || navigator.webkitGetUserMedia
-  //       ? {
-  //           getUserMedia: function (c) {
-  //             return new Promise(function (y, n) {
-  //               (navigator.mozGetUserMedia || navigator.webkitGetUserMedia).call(
-  //                 navigator,
-  //                 c,
-  //                 y,
-  //                 n,
-  //               );
-  //             });
-  //           },
-  //         }
-  //       : null);
   var constraints = {
+    audio: false,
     video: { facingMode: 'environment', width: 1280, height: 720 },
   };
   navigator.mediaDevices

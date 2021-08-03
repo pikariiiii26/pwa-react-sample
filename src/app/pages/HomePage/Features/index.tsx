@@ -21,7 +21,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'app/components/Link';
 import { messages } from '../messages';
 import openCamera from 'utils/camera';
-
+import WebCameraTest from 'app/components/Camera';
 export function Features() {
   const { t } = useTranslation();
 
@@ -34,6 +34,7 @@ export function Features() {
         </div>
         <video></video>
       </div>
+      <WebCameraTest video={{ width: 1280, height: 720 }} />
       <Lead>
         Crafted for <strong>highly scalable</strong>,{' '}
         <strong>easily maintainable</strong> and{' '}
