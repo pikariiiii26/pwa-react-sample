@@ -16,12 +16,14 @@ import { HomePage } from './pages/HomePage/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 
+import { TestPage, TestPage2 } from './pages/TestPage';
+
 export function App() {
   const { i18n } = useTranslation();
   return (
     <BrowserRouter>
       <Helmet
-        titleTemplate="%s - React Boilerplate"
+        // titleTemplate="%s - React Boilerplate"
         defaultTitle="React Boilerplate"
         htmlAttributes={{ lang: i18n.language }}
       >
@@ -29,6 +31,8 @@ export function App() {
       </Helmet>
       <Switch>
         <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage} />
+        <Route exact path={process.env.PUBLIC_URL + '/aaa'} component={TestPage} />
+        <Route exact path={process.env.PUBLIC_URL + '/bbb'} component={TestPage2} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
