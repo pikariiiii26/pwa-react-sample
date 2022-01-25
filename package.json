@@ -85,7 +85,8 @@
     "prettify": "prettier --write",
     "extract-messages": "i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
-    "serve": "serve -s build"
+    "serve": "serve -s build",
+    "firebase:serve":"firebase emulators:start --only functions,hosting"
   },
   "eslintConfig": {
     "extends": "react-app"

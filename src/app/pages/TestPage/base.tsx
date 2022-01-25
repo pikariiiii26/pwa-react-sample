@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
+// import { useHistory } from 'react-router-dom';
 import { NavBar } from 'app/components/NavBar';
 import { PageWrapper } from 'app/components/PageWrapper';
 
@@ -8,6 +9,15 @@ interface PropsType {
 }
 
 export function BasePage(props: PropsType) {
+  // const history = useHistory();
+  // React.useEffect(() => {
+  //   const urlReplace = () => {
+  //     history.replace('/abc');
+  //   };
+  //   if (history) {
+  //     urlReplace();
+  //   }
+  // }, [history]);
   return (
     <>
       <Helmet>

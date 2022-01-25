@@ -1,6 +1,5 @@
 import * as functions from "firebase-functions";
 
-
 function buildHtmlWithPost(obj: any) {
   return `<!DOCTYPE html><head>
 <meta name="description" content="${obj.title}" />
@@ -17,13 +16,13 @@ function buildHtmlWithPost(obj: any) {
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="${obj.title}" />
 <meta name="twitter:image" content="${obj?.thumbnail?.url || ''}" />
-<link rel="canonical" href="${obj.path}">
+<link rel="canonical" href="${obj.ogUrl || obj.path}">
 <link rel="icon" href="/favicon.ico" />
 <title>${obj.title}</title>
 </head>
 <body>
   <script>
-    window.location = ${obj.path};
+    window.location = "/bot/${obj.path}";
   </script>
 </body>
 </html>`;
@@ -44,6 +43,8 @@ function paathWithMeta (path:string) {
       return {title: 'test 1', path: '/_aaa'}
     case '/bbb':
       return {title: 'test 2', path: '/_bbb'}
+    case '/abc':
+      return {title: 'test 2', path: '/_abc', ogUrl: '/abc' }
     default:
       return {title: 'index', path: '/'}
   }
