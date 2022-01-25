@@ -1,4 +1,4 @@
-import * as functions from "firebase-functions";
+import * as functions from 'firebase-functions';
 
 function buildHtmlWithPost(obj: any) {
   return `<!DOCTYPE html><head>
@@ -7,7 +7,7 @@ function buildHtmlWithPost(obj: any) {
 <meta property="og:title" content="${obj.title}">
 <meta property="og:description" content='${truncate(
     removeHTMLTag(obj?.body || ''),
-    150
+    150,
   )}' />
 <meta property="og:url" content="http://sample.hoge.sample.com/" />
 <meta property="og:image" content="${obj?.thumbnail?.url || ''}">
@@ -26,27 +26,26 @@ function buildHtmlWithPost(obj: any) {
   </script>
 </body>
 </html>`;
-};
+}
 
 function truncate(str: string, len: number) {
-  return str.length <= len ? str : str.substr(0, len) + "...";
+  return str.length <= len ? str : str.substr(0, len) + '...';
 }
 
 function removeHTMLTag(str: string) {
-  return str.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "");
+  return str.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '');
 }
 
-function paathWithMeta (path:string) {
-
+function paathWithMeta(path: string) {
   switch (path) {
     case '/aaa':
-      return {title: 'test 1', path: '/_aaa'}
+      return { title: 'test 1', path: '/_aaa' };
     case '/bbb':
-      return {title: 'test 2', path: '/_bbb'}
+      return { title: 'test 2', path: '/_bbb' };
     case '/abc':
-      return {title: 'test 2', path: '/_abc', ogUrl: '/abc' }
+      return { title: 'test 2', path: '/_abc', ogUrl: '/abc' };
     default:
-      return {title: 'index', path: '/'}
+      return { title: 'index', path: '/' };
   }
 }
 
@@ -68,8 +67,8 @@ export const helloWorld = functions.https.onRequest((request, response) => {
   // .catch(err => {
   //   res.status(500).end(err);
   // });
-  const ua = request.headers["user-agent"];
-  functions.logger.info(ua?.toString(), {structuredData: true});
+  const ua = request.headers['user-agent'];
+  functions.logger.info(ua?.toString(), { structuredData: true });
   const htmlString = buildHtmlWithPost(paathWithMeta(request.path));
   response.status(200).end(htmlString);
 });
