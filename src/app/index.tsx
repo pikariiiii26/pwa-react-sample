@@ -8,7 +8,7 @@
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, BrowserRouter, useHistory } from 'react-router-dom';
 
 import { GlobalStyle } from '../styles/global-styles';
 
@@ -16,10 +16,19 @@ import { HomePage } from './pages/HomePage/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 
-import { TestPage, TestPage2 } from './pages/TestPage';
+import { TestPage, TestPage2, TestPage3 } from './pages/TestPage';
 
 export function App() {
   const { i18n } = useTranslation();
+  // const history = useHistory();
+  // React.useEffect(() => {
+  //   const urlReplace = () => {
+  //     history.replace(history.location + '/bbb');
+  //   };
+  //   if (history) {
+  //     urlReplace();
+  //   }
+  // }, [history]);
   return (
     <BrowserRouter>
       <Helmet
@@ -33,6 +42,8 @@ export function App() {
         <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage} />
         <Route exact path={process.env.PUBLIC_URL + '/aaa'} component={TestPage} />
         <Route exact path={process.env.PUBLIC_URL + '/bbb'} component={TestPage2} />
+        <Route exact path={process.env.PUBLIC_URL + '/_abc'} component={TestPage2} />
+        <Route exact path={process.env.PUBLIC_URL + '/_abc/bbb'} component={TestPage3} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

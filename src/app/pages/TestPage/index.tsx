@@ -10,3 +10,8 @@ export function TestPage2() {
       < BasePage title="test 2 " />
   );
 }
+export function TestPage3() {
+  return (
+      < BasePage title="test 3 " />
+  );
+}
